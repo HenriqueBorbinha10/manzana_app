@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/appManzana.css">
+  <link rel="shortcut icon" href="images/logo.png">
+  <link rel="manifest" href="scripts/manifest.json"/>
+  <title>App Manzana</title>
+</head>
+<body>
+  <header>
+    <img src="images/logoSemFundo.png" alt="Logo App Manzana">
+  </header>
+
+  <div class="slider-container">
+    <div class="slider">
+      <img src="images/APP2.png">
+      <img src="images/APP3.png">
+      <img src="images/APP4.png">
+    </div>
+    <button class="slider-btn prev">&#8249;</button>
+    <button class="slider-btn next">&#8250;</button>
+  </div>
+
+  <main>
+    <section onclick="location.href='ebook1.html'">
+      <img src="icons/maca.png">
+      <p>Truco de la Manzana</p>
+    </section>
+
+    <section onclick="location.href='ebook2.html'">
+      <img src="icons/caixa-de-vegetais.png">
+      <p>Verduras Recomendadas</p>
+    </section>
+
+    <section onclick="location.href='ebook3.html'">
+      <img src="icons/rosa.png">
+      <p>La Técnica de Afrodita</p>
+    </section>
+
+    <section onclick="location.href='ebook4.html'">
+      <img src="icons/cha-verde.png">
+      <p>Té Milenario Asiático</p>
+    </section>
+
+    <section onclick="location.href='ebook5.html'">
+      <img src="icons/perda-de-peso.png">
+      <p>La Hormona Adelgazante</p>
+    </section>
+
+    <section onclick="location.href='ebook6.html'">
+      <img src="icons/musculo.png">
+      <p>El Tónico Hormonal</p>
+    </section>
+  </main>
+
+ 
+</body>
+<script>
+  const slider = document.querySelector(".slider");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const imgWidth = 100;
+  let currentIndex = 0;
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + 3) % 3;
+    updateSliderPosition();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % 3;
+    updateSliderPosition();
+  });
+
+  function updateSliderPosition() {
+    const newPosition = -currentIndex * imgWidth;
+    slider.style.transform = `translateX(${newPosition}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % 3;
+    updateSliderPosition();
+  }
+
+  setInterval(nextSlide, 2000);
+</script>
+</html>

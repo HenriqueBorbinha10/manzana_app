@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/diagnostico.css">
+  <link rel="shortcut icon" href="images/logo.png">
+  <link rel="manifest" href="scripts/manifest.json"/>
+  <title>Diagnóstico</title>
+</head>
+<body>
+  <h1>¡Aqui está su resumen y alguna información importante<br> que utilizamos para elaborar su plan de pérdida de peso!</h1>
+
+  <button onclick="location.href='appManzana.html'">ACCEDE A MI TRUCO DE MANZANA</button>
+
+  <main>
+    <section>
+      <h2>Calorias diarias</h2>
+      <h3><span id="resultadoCalorias"></span> Calorias</h3>
+      <h4>Cantidad recomendada:</h4>
+      <h5><span id="descResultadoCalorias"></span>kcal</h5>
+    </section>
+
+    <section>
+      <h2>Grasas diárias</h2>
+      <h3><span id="resultadoGorduras"></span>g Gordura</h3>
+      <h4>Cantidad recomendada:</h4>
+      <h5><span id="descResultadoGorduras"></span>g</h5>
+    </section>
+
+    <section>
+      <h2>Proteínas diárias</h2>
+      <h3><span id="resultadoProteinas"></span>g Proteínas</h3>
+      <h4>Cantidad recomendada:</h4>
+      <h5><span id="descResultadoProteinas"></span>g</h5>
+    </section>
+
+    <section>
+      <h2>Carbohidratos diárias</h2>
+      <h3><span id="resultadoCarboidratosDiarios"></span>g Carbohidratos</h3>
+      <h4>Cantidad recomendada:</h4>
+      <h5><span id="descResultadoCarboidratosDiarios"></span>g</h5>
+    </section>
+
+    <section>
+      <h2>Consumo diario de agua</h2>
+      <h3 class="resultadoPrincipal"><span id="resultadoQuantidadeAgua"></span>L</h3>
+      <h4>Cantidad recomendada:</h4>
+      <h5 class="subResultadoPrincipal"><span id="descResultadoQuantidadeAgua"></span>L</h5>
+    </section>
+
+    <section>
+      <h2>Tu IMC</h2>
+      <h3 class="resultadoPrincipal"><span id="resultadoIMC"></span></h3>
+      <h4>Tu IMC:</h4>
+      <h5 class="subResultadoPrincipal"><span id="statusIMC"></span></h5>
+    </section>
+  </main>
+
+  <button onclick="location.href='appManzana.html'">ACCEDE A MI TRUCO DE MANZANA</button>
+  <script>
+	localStorage.setItem('resultado', 'sim')
+</script>
+  <script>
+    // Pegar os dados do localStorage
+    const caloriasDiarias = localStorage.getItem('caloriasDiarias');
+    const descCaloriasDiarias = localStorage.getItem('descCaloriasDiarias');
+
+    const gordurasDiarias = localStorage.getItem('gramasGorduras');
+    const descGordurasDiarias = localStorage.getItem('descGramasGorduras');
+
+    const proteinasDiarias = localStorage.getItem('gramasProteinas');
+    const descProteinasDiarias = localStorage.getItem('descGramasProteinas');
+
+    const carboidratosDiarios = localStorage.getItem('gramasCarboidratos');
+    const descCarboidratosDiarios = localStorage.getItem('descGramasCarboidratos');
+
+    const quantidadeAgua = localStorage.getItem('quantidadeAgua');
+    const descQuantidadeAgua = localStorage.getItem('descQuantidadeAgua');
+
+    const imc = localStorage.getItem('resultadoIMC');
+  
+    // Atualizar os spans com os resultados
+    document.getElementById('resultadoCalorias').textContent = caloriasDiarias;
+    document.getElementById('descResultadoCalorias').textContent = descCaloriasDiarias;
+
+    document.getElementById('resultadoGorduras').textContent = gordurasDiarias;
+    document.getElementById('descResultadoGorduras').textContent = descGordurasDiarias;
+
+    document.getElementById('resultadoProteinas').textContent = proteinasDiarias;
+    document.getElementById('descResultadoProteinas').textContent = descProteinasDiarias;
+    
+    document.getElementById('resultadoCarboidratosDiarios').textContent = carboidratosDiarios;
+    document.getElementById('descResultadoCarboidratosDiarios').textContent = descCarboidratosDiarios;
+
+    document.getElementById('resultadoQuantidadeAgua').textContent = quantidadeAgua;
+    document.getElementById('descResultadoQuantidadeAgua').textContent = descQuantidadeAgua;
+
+    document.getElementById('resultadoIMC').textContent = imc;
+    document.getElementById('statusIMC').textContent = getIMCStatus(imc);
+
+    function getIMCStatus(imc) {
+    if (imc < 18.5) {
+      return 'Bajo peso';
+    } else if (imc < 24.9) {
+      return 'Normal';
+    } else if (imc < 29.9) {
+      return 'Sobrepeso';
+    } else {
+      return 'Obesidad';
+    }
+  }
+  </script>
+  
+</body>
+</html>
