@@ -1,7 +1,7 @@
-// scripts/lang.js
+// scripts/lang_index.js
 
 function loadTranslations(lang) {
-    fetch('scripts/translations.json')
+    fetch('scripts/translations_index.json')
         .then(response => response.json())
         .then(translations => {
             applyTranslations(translations[lang]);
@@ -41,8 +41,6 @@ if (userLang.startsWith('fr')) {
     loadTranslations('fr');
 } else if (userLang.startsWith('pt')) {
     loadTranslations('pt');
-} else if (userLang.startsWith('en')) {
-    loadTranslations('en');
 } else {
     loadTranslations('es'); // Default para Espanhol
 }

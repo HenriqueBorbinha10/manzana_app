@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/appManzana.css">
   <link rel="shortcut icon" href="images/logo.png">
   <link rel="manifest" href="scripts/manifest.json"/>
-  <title>App Manzana</title>
+  <title id="title"></title>
 </head>
 <body>
   <header>
@@ -27,36 +27,35 @@
   <main>
     <section onclick="location.href='ebook1.html'">
       <img src="icons/maca.png">
-      <p>Truco de la Manzana</p>
+      <p id="trucoManzana"></p>
     </section>
 
     <section onclick="location.href='ebook2.html'">
       <img src="icons/caixa-de-vegetais.png">
-      <p>Verduras Recomendadas</p>
+      <p id="verdurasRecomendadas"></p>
     </section>
 
     <section onclick="location.href='ebook3.html'">
       <img src="icons/rosa.png">
-      <p>La Técnica de Afrodita</p>
+      <p id="tecnicaAfrodita"></p>
     </section>
 
     <section onclick="location.href='ebook4.html'">
       <img src="icons/cha-verde.png">
-      <p>Té Milenario Asiático</p>
+      <p id="teMilenarioAsiatico"></p>
     </section>
 
     <section onclick="location.href='ebook5.html'">
       <img src="icons/perda-de-peso.png">
-      <p>La Hormona Adelgazante</p>
+      <p id="hormonaAdelgazante"></p>
     </section>
 
     <section onclick="location.href='ebook6.html'">
       <img src="icons/musculo.png">
-      <p>El Tónico Hormonal</p>
+      <p id="tonicoHormonal"></p>
     </section>
   </main>
 
- 
 </body>
 <script>
   const slider = document.querySelector(".slider");
@@ -87,4 +86,5 @@
 
   setInterval(nextSlide, 2000);
 </script>
+<script src="scripts/lang_app.js"></script>
 </html>

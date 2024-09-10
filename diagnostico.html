@@ -7,61 +7,62 @@
   <link rel="stylesheet" href="styles/diagnostico.css">
   <link rel="shortcut icon" href="images/logo.png">
   <link rel="manifest" href="scripts/manifest.json"/>
-  <title>Diagnóstico</title>
+  <title id="page-title"></title>
 </head>
 <body>
-  <h1>¡Aqui está su resumen y alguna información importante<br> que utilizamos para elaborar su plan de pérdida de peso!</h1>
+  <h1 id="header-text"></h1>
 
-  <button onclick="location.href='appManzana.html'">ACCEDE A MI TRUCO DE MANZANA</button>
+  <button id="main-button" onclick="location.href='appManzana.html'"></button>
 
   <main>
     <section>
-      <h2>Calorias diarias</h2>
-      <h3><span id="resultadoCalorias"></span> Calorias</h3>
-      <h4>Cantidad recomendada:</h4>
+      <h2 id="calories-title"></h2>
+      <h3><span id="resultadoCalorias"></span> <span id="calories-unit"></span></h3>
+      <h4 id="recommended-amount-calories"></h4>
       <h5><span id="descResultadoCalorias"></span>kcal</h5>
     </section>
 
     <section>
-      <h2>Grasas diárias</h2>
-      <h3><span id="resultadoGorduras"></span>g Gordura</h3>
-      <h4>Cantidad recomendada:</h4>
+      <h2 id="fats-title"></h2>
+      <h3><span id="resultadoGorduras"></span> <span id="fats-unit"></span></h3>
+      <h4 id="recommended-amount-fats"></h4>
       <h5><span id="descResultadoGorduras"></span>g</h5>
     </section>
 
     <section>
-      <h2>Proteínas diárias</h2>
-      <h3><span id="resultadoProteinas"></span>g Proteínas</h3>
-      <h4>Cantidad recomendada:</h4>
+      <h2 id="proteins-title"></h2>
+      <h3><span id="resultadoProteinas"></span> <span id="proteins-unit"></span></h3>
+      <h4 id="recommended-amount-proteins"></h4>
       <h5><span id="descResultadoProteinas"></span>g</h5>
     </section>
 
     <section>
-      <h2>Carbohidratos diárias</h2>
-      <h3><span id="resultadoCarboidratosDiarios"></span>g Carbohidratos</h3>
-      <h4>Cantidad recomendada:</h4>
+      <h2 id="carbs-title"></h2>
+      <h3><span id="resultadoCarboidratosDiarios"></span> <span id="carbs-unit"></span></h3>
+      <h4 id="recommended-amount-carbs"></h4>
       <h5><span id="descResultadoCarboidratosDiarios"></span>g</h5>
     </section>
 
     <section>
-      <h2>Consumo diario de agua</h2>
-      <h3 class="resultadoPrincipal"><span id="resultadoQuantidadeAgua"></span>L</h3>
-      <h4>Cantidad recomendada:</h4>
-      <h5 class="subResultadoPrincipal"><span id="descResultadoQuantidadeAgua"></span>L</h5>
+      <h2 id="water-title"></h2>
+      <h3 class="resultadoPrincipal"><span id="resultadoQuantidadeAgua"></span> <span id="water-unit">L</span></h3>
+      <h4 id="recommended-amount-water"></h4>
+      <h5 class="subResultadoPrincipal"><span id="descResultadoQuantidadeAgua"></span> <span id="water-subunit">L</span></h5>
     </section>
 
     <section>
-      <h2>Tu IMC</h2>
+      <h2 id="bmi-title"></h2>
       <h3 class="resultadoPrincipal"><span id="resultadoIMC"></span></h3>
-      <h4>Tu IMC:</h4>
+      <h4 id="bmi-status-title"></h4>
       <h5 class="subResultadoPrincipal"><span id="statusIMC"></span></h5>
     </section>
   </main>
 
-  <button onclick="location.href='appManzana.html'">ACCEDE A MI TRUCO DE MANZANA</button>
+  <button id="main-button-footer" onclick="location.href='appManzana.html'"></button>
+
   <script>
-	localStorage.setItem('resultado', 'sim')
-</script>
+    localStorage.setItem('resultado', 'sim');
+  </script>
   <script>
     // Pegar os dados do localStorage
     const caloriasDiarias = localStorage.getItem('caloriasDiarias');
@@ -98,20 +99,29 @@
     document.getElementById('descResultadoQuantidadeAgua').textContent = descQuantidadeAgua;
 
     document.getElementById('resultadoIMC').textContent = imc;
-    document.getElementById('statusIMC').textContent = getIMCStatus(imc);
+    loadTranslationsIMC();
 
-    function getIMCStatus(imc) {
-    if (imc < 18.5) {
-      return 'Bajo peso';
-    } else if (imc < 24.9) {
-      return 'Normal';
-    } else if (imc < 29.9) {
-      return 'Sobrepeso';
-    } else {
-      return 'Obesidad';
+    function loadTranslationsIMC() {
+      fetch('scripts/translations_diagnostico.json')
+        .then(response => response.json())
+        .then(translations => {
+          let status = '';
+          const lang = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
+          console.log('Teste linguagem: ', lang);
+          if (imc < 18.5) {
+              status = translations[lang].bmi_underweight;
+          } else if (imc < 24.9) {
+              status = translations[lang].bmi_normal;
+          } else if (imc < 29.9) {
+              status = translations[lang].bmi_overweight;
+          } else {
+              status = translations[lang].bmi_obesity;
+          }
+          document.getElementById('statusIMC').textContent = status;
+        })
+        .catch(error => console.error('Erro ao carregar traduções IMC:', error));
     }
-  }
   </script>
-  
+  <script src="scripts/lang_diagnostico.js"></script>
 </body>
 </html>
