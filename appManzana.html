@@ -25,32 +25,32 @@
   </div>
 
   <main>
-    <section onclick="location.href='ebook1.html'">
+    <section onclick="redirectToPage('truco_manzana')">
       <img src="icons/maca.png">
       <p id="trucoManzana"></p>
     </section>
 
-    <section onclick="location.href='ebook2.html'">
+    <section onclick="redirectToPage('verduras_recomendadas')">
       <img src="icons/caixa-de-vegetais.png">
       <p id="verdurasRecomendadas"></p>
     </section>
 
-    <section onclick="location.href='ebook3.html'">
+    <section onclick="redirectToPage('afrodite')">
       <img src="icons/rosa.png">
       <p id="tecnicaAfrodita"></p>
     </section>
 
-    <section onclick="location.href='ebook4.html'">
+    <section onclick="redirectToPage('cha_milenar')">
       <img src="icons/cha-verde.png">
       <p id="teMilenarioAsiatico"></p>
     </section>
 
-    <section onclick="location.href='ebook5.html'">
+    <section onclick="redirectToPage('ativar_hormonio')">
       <img src="icons/perda-de-peso.png">
       <p id="hormonaAdelgazante"></p>
     </section>
 
-    <section onclick="location.href='ebook6.html'">
+    <section onclick="redirectToPage('tonico_hormonal')">
       <img src="icons/musculo.png">
       <p id="tonicoHormonal"></p>
     </section>
@@ -58,6 +58,10 @@
 
 </body>
 <script>
+    function redirectToPage(ebook) {
+    window.location.href = `ebook.html?ebook=${ebook}`;
+  }
+
   const slider = document.querySelector(".slider");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");

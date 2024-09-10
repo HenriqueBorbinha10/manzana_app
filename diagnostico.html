@@ -107,15 +107,16 @@
         .then(translations => {
           let status = '';
           const lang = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
+          const selectedLang = translations[lang] || translations['es'];
           console.log('Teste linguagem: ', lang);
           if (imc < 18.5) {
-              status = translations[lang].bmi_underweight;
+              status = selectedLang[lang].bmi_underweight;
           } else if (imc < 24.9) {
-              status = translations[lang].bmi_normal;
+              status = selectedLang[lang].bmi_normal;
           } else if (imc < 29.9) {
-              status = translations[lang].bmi_overweight;
+              status = selectedLang[lang].bmi_overweight;
           } else {
-              status = translations[lang].bmi_obesity;
+              status = selectedLang[lang].bmi_obesity;
           }
           document.getElementById('statusIMC').textContent = status;
         })

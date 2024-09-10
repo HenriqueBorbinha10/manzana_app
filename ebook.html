@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/ebook.css">
+  <link rel="shortcut icon" href="images/logo.png">
+
+  <title id="pageTitle"></title>
+</head>
+<body>
+  <header>
+    <div class="voltar" onclick="location.href='appManzana.html'">
+      <img src="icons/voltar.png" class="iconVoltar">
+      <p id="backButton"></p>
+    </div>
+
+    <img src="images/logoSemFundo.png" alt="Logo App Manzana">
+  </header>
+
+  <h1 id="mainHeading"></h1>
+
+  <section>
+    <a id="ebook_pdf" download>
+      <img src="icons/seta-para-baixo.png">
+      <span id="ebookText"></span>
+      <img src="icons/seta-para-baixo.png">
+    </a>
+  </section>
+
+  <iframe id="ebook_html" frameborder="0"></iframe>
+  <script src="scripts/lang_index_ebook.js"></script>
+</body>
+</html>
