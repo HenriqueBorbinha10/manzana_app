@@ -14,8 +14,7 @@ function applyTranslations(translations) {
     const listLangsSuport = ["es", "fr"];
     const ebook = urlParams.get('ebook');
     const navigatorLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
-    // const lang = listLangsSuport.includes(navigatorLang) ? navigatorLang : 'es';
-    const lang = 'fr';
+    const lang = listLangsSuport.includes(navigatorLang) ? navigatorLang : 'es';
 
     console.log('Linguagem obitida ', lang);
     
