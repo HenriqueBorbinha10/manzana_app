@@ -110,13 +110,13 @@
           const selectedLang = translations[lang] || translations['es'];
           console.log('Teste linguagem: ', lang);
           if (imc < 18.5) {
-              status = selectedLang[lang].bmi_underweight;
+              status = selectedLang.bmi_underweight;
           } else if (imc < 24.9) {
-              status = selectedLang[lang].bmi_normal;
+              status = selectedLang.bmi_normal;
           } else if (imc < 29.9) {
-              status = selectedLang[lang].bmi_overweight;
+              status = selectedLang.bmi_overweight;
           } else {
-              status = selectedLang[lang].bmi_obesity;
+              status = selectedLang.bmi_obesity;
           }
           document.getElementById('statusIMC').textContent = status;
         })

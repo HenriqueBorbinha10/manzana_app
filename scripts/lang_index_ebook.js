@@ -14,7 +14,10 @@ function applyTranslations(translations) {
     const listLangsSuport = ["es", "fr"];
     const ebook = urlParams.get('ebook');
     const navigatorLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
-    const lang = listLangsSuport.includes(navigatorLang) ? navigatorLang : 'es';
+    // const lang = listLangsSuport.includes(navigatorLang) ? navigatorLang : 'es';
+    const lang = 'fr';
+
+    console.log('Linguagem obitida ', lang);
     
     document.getElementById('pageTitle').textContent = translations.pageTitle;
     document.getElementById('backButton').textContent = translations.backButton;
@@ -22,8 +25,8 @@ function applyTranslations(translations) {
     document.getElementById('ebookText').textContent = translations.ebookText;
 
     if (ebook) {
-      document.getElementById('ebook_pdf').href = `ebooks/${lang}/${ebook}.pdf`;
-      document.getElementById('ebook_html').src = `ebooks/${lang}/${ebook}/${ebook}.html`;
+      document.getElementById('ebook_pdf').href = `ebooks/fr/${ebook}.pdf`;
+      document.getElementById('ebook_html').src = `ebooks/fr/${ebook}/${ebook}.html`;
     }
 }
 
