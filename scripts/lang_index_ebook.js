@@ -24,8 +24,8 @@ function applyTranslations(translations) {
     document.getElementById('ebookText').textContent = translations.ebookText;
 
     if (ebook) {
-      document.getElementById('ebook_pdf').href = `ebooks/fr/${ebook}.pdf`;
-      document.getElementById('ebook_html').src = `ebooks/fr/${ebook}/${ebook}.html`;
+      document.getElementById('ebook_pdf').href = `ebooks/${lang}/${ebook}.pdf`;
+      document.getElementById('ebook_html').src = `ebooks/${lang}/${ebook}/${ebook}.html`;
     }
 }
 
