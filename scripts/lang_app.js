@@ -1,6 +1,11 @@
 // scripts/lang_app.js
 
 function loadTranslations(lang) {
+    if (lang != 'pt'){
+        document.getElementById('iconsWpp').remove();
+        document.getElementById('iconsBumBum').remove();
+    }
+
     fetch('scripts/translations_app.json')
         .then(response => response.json())
         .then(translations => {
