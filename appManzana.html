@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="styles/appManzana.css">
-  <link rel="shortcut icon" href="images/logo.png">
+  <link id="logo" rel="shortcut icon">
   <link rel="manifest" href="scripts/manifest.json"/>
   <title id="title"></title>
 </head>
 <body>
   <header>
-    <img src="images/logoSemFundo.png" alt="Logo App Manzana">
+    <img id="logoSemFundo" alt="Logo App Manzana">
   </header>
 
   <div class="slider-container">
     <div class="slider">
-      <img src="images/APP2.png">
-      <img src="images/APP3.png">
-      <img src="images/APP4.png">
+      <img id="imageApp2">
+      <img id="imageApp3">
+      <img id="imageApp4">
     </div>
     <button class="slider-btn prev">&#8249;</button>
     <button class="slider-btn next">&#8250;</button>
@@ -26,32 +26,32 @@
 
   <main>
     <section onclick="redirectToPage('truco_manzana')">
-      <img src="icons/maca.png">
+      <img id="iconMaca">
       <p id="trucoManzana"></p>
     </section>
 
     <section onclick="redirectToPage('verduras_recomendadas')">
-      <img src="icons/caixa-de-vegetais.png">
+      <img id="iconsVegetais">
       <p id="verdurasRecomendadas"></p>
     </section>
 
     <section onclick="redirectToPage('afrodite')">
-      <img src="icons/rosa.png">
+      <img id="iconsRosa">
       <p id="tecnicaAfrodita"></p>
     </section>
 
     <section onclick="redirectToPage('cha_milenar')">
-      <img src="icons/cha-verde.png">
+      <img id="iconsChaVerde">
       <p id="teMilenarioAsiatico"></p>
     </section>
 
     <section onclick="redirectToPage('ativar_hormonio')">
-      <img src="icons/perda-de-peso.png">
+      <img id="iconsPerdaPeso">
       <p id="hormonaAdelgazante"></p>
     </section>
 
     <section onclick="redirectToPage('tonico_hormonal')">
-      <img src="icons/musculo.png">
+      <img id="iconsMusculo">
       <p id="tonicoHormonal"></p>
     </section>
   </main>

@@ -9,6 +9,16 @@ function loadTranslations(lang) {
         .catch(error => console.error('Erro ao carregar traduções:', error));
 }
 
+function loadImages(lang) {
+    const pathImages = {
+        "pt": "assets/images_pt/",
+        "es": "assets/images/",
+        "fr": "assets/images/",
+    }
+    
+    document.getElementById('logo').href = pathImages[lang] + "logo.png";
+}
+
 function applyTranslations(translations) {
     document.getElementById('page-title').textContent = translations.title;
     document.getElementById('header-text').innerHTML = translations.header;
@@ -34,12 +44,14 @@ function applyTranslations(translations) {
     document.getElementById('calories-unit').textContent = translations.calories;
 }
 
-// Detecta o idioma do navegador ou usa 'es' (Espanhol) como padrão
 const userLang = navigator.language || navigator.userLanguage || 'es';
 if (userLang.startsWith('fr')) {
     loadTranslations('fr');
+    loadImages('fr');
 } else if (userLang.startsWith('pt')) {
     loadTranslations('pt');
+    loadImages('pt');
 } else {
     loadTranslations('es'); // Default para Espanhol
+    loadImages('es');
 }
