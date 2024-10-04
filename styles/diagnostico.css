@@ -16,7 +16,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(../images/bgDesktop.png);
+    background-image: url(../assets/images/bgDesktop.png);
     background-size: 100% 100%;
   }
 
@@ -100,7 +100,7 @@ button:hover {
 
 @media (max-width: 950px) {
   body {
-    background-image: url(../images/bgMobile.png);
+    background-image: url(../assets/images/bgMobile.png);
     background-size: 100% 100%
   }
 

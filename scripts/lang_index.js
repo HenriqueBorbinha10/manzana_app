@@ -9,6 +9,17 @@ function loadTranslations(lang) {
         .catch(error => console.error('Erro ao carregar traduções:', error));
 }
 
+function loadImages(lang) {
+    const pathImages = {
+        "pt": "assets/images_pt/",
+        "es": "assets/images/",
+        "fr": "assets/images/",
+    }
+
+    document.getElementById('logo').href = pathImages[lang] + "logo.png";
+    document.getElementById('logo1').src = pathImages[lang] + "logo.png";
+}
+
 function applyTranslations(translations) {
     document.getElementById('welcomeMessage').innerHTML = translations.welcome;
     document.getElementById('inputIdade').placeholder = translations.age;
@@ -39,8 +50,11 @@ function applyTranslations(translations) {
 const userLang = navigator.language || navigator.userLanguage || 'es';
 if (userLang.startsWith('fr')) {
     loadTranslations('fr');
+    loadImages('fr');
 } else if (userLang.startsWith('pt')) {
     loadTranslations('pt');
+    loadImages('pt');
 } else {
     loadTranslations('es'); // Default para Espanhol
+    loadImages('es');
 }

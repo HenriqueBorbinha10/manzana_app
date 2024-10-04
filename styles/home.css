@@ -70,7 +70,7 @@ button:hover {
 }
 
 @media (min-width: 951px) {
-  body { background: url(../images/bgDesktop.png) no-repeat fixed center }
+  body { background: url(../assets/images/bgDesktop.png) no-repeat fixed center }
 
   main {
     position: absolute;
